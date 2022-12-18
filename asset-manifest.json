@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.59a50b58.css",
+    "main.js": "/static/js/main.7f7b1475.js",
+    "static/media/rsLang.png": "/static/media/rsLang.cf00f86f73702994ddee.png",
+    "static/media/Shelter.png": "/static/media/Shelter.229cec716f6eb70d7f65.png",
+    "static/media/galery.png": "/static/media/galery.385fb5fc0d8cfe294bf1.png",
+    "static/media/photograph.png": "/static/media/photograph.9cd5894164ba453ff98c.png",
+    "static/media/skyGlass.png": "/static/media/skyGlass.3d13c808a9dbb821aa01.png",
+    "static/media/puppies.png": "/static/media/puppies.ff6d0f7e3d330686b327.png",
+    "static/media/webPlayer.png": "/static/media/webPlayer.7f86abeb4721e3aaa52b.png",
+    "static/media/summary__img.png": "/static/media/summary__img.d0fa31b322476c74ceb0.png",
+    "static/media/contacts.svg": "/static/media/contacts.0b89a337134c82818e1cf3826f91976b.svg",
+    "static/media/memoryGame.png": "/static/media/memoryGame.8c39179d942333007e7e.png",
+    "static/media/portfolio.png": "/static/media/portfolio.dfd395e74370c43e22b0.png",
+    "static/media/education1.png": "/static/media/education1.fc2d9ab750cdd9aaec4a.png",
+    "index.html": "/index.html",
+    "main.59a50b58.css.map": "/static/css/main.59a50b58.css.map",
+    "main.7f7b1475.js.map": "/static/js/main.7f7b1475.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59a50b58.css",
+    "static/js/main.7f7b1475.js"
+  ]
+}
