@@ -22,13 +22,14 @@ const NavMenu = ({ fnScrollMode }) => {
   }
 
   function scrollToBlock(event, step) {
+    console.log('work', event, step);
     closeMenu();
     event.preventDefault();
     fnScrollMode('nav-menu');
     setTimeout(() => {
       fnScrollMode('main');
     }, 300);
-    document.documentElement.scrollTop = step;
+    document.documentElement.scrollTo(0, step);
   }
 
   function closeMenu() {

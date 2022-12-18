@@ -4,12 +4,12 @@ import ContactItem from './ContactItem';
 import FormContact from './form/FormContact';
 import './contacts-styles.scss';
 
-const Contacts = () => {
+const Contacts = ({ setOpen, setAddedValue }) => {
   return (
     <div className="contacts">
       <div className="contacts__container">
         <div className="contacts__title">{`I'm waiting for your message :`}</div>
-        <FormContact />
+        <FormContact setOpen={setOpen} setAddedValue={setAddedValue} />
         <ul className="contacts__list">
           {SVG.map((a, i) => (
             <ContactItem

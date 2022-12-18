@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import NavMenu from './components/nav-menu/NavMenu';
 import ScrollItem from './components/scroll-items/ScrollItem';
 import ItemWithPicture from './components/scroll-items/ScrollItemWithPicture';
@@ -8,17 +8,24 @@ import Education from './components/content/education/Education';
 import MyCertificates from './components/content/my-certificates/MyCertificates';
 import Projects from './components/content/projects/Projects';
 import Contacts from './components/content/contacts/Contacts';
+import IsLoading from './components/isLoading/IsLoading';
 
 import EducationIMG from './assets/education1.png';
 import SummaryIMG from './assets/summary__img.png';
 import ContactIMG from './assets/contacts.svg';
+import IsLoadingIMG from './assets/projectsPhotos/isLoadingGifTwo.gif';
 
 function App() {
   const permissionToScrollFUnction = useRef(true);
   const lastScrollValue = useRef(0);
+  const addedValue = useRef(200);
   const scrollMode = useRef('main');
+  const [openIsLoading, setOpenIsLoading] = useState(false);
   const setScrollMode = (mode) => {
     scrollMode.current = mode;
+  };
+  const setAddedValue = (value) => {
+    addedValue.current = value;
   };
 
   useEffect(() => {
@@ -62,19 +69,18 @@ function App() {
             }, 400);
           }
           const actualScrollValue = document.documentElement.scrollTop;
-          console.log('ACTUALE SCROLL VALUE', actualScrollValue);
-          console.log('LAST SCROLL VALUE', lastScrollValue.current);
+          //console.log('ACTUALE SCROLL VALUE', actualScrollValue);
+          //console.log('LAST SCROLL VALUE', lastScrollValue.current);
           const comparisonValues = actualScrollValue - lastScrollValue.current;
-          console.log('COMPARISION VALUES =========', comparisonValues);
+          //console.log('COMPARISION VALUES =========', comparisonValues);
           if (scrollMode.current !== 'nav-menu') {
             if (comparisonValues > 0) {
-              lastScrollValue.current += 200;
+              lastScrollValue.current += addedValue.current;
             } else if (comparisonValues < 0) {
-              lastScrollValue.current += -200;
+              lastScrollValue.current += -addedValue.current;
             } else {
               return;
             }
-
             if (lastScrollValue.current > 1200) {
               lastScrollValue.current = 1200;
               return;
@@ -94,35 +100,33 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <NavMenu fnScrollMode={setScrollMode} />
-      <div className="container">
-        <section className="blocks">
-          <ScrollItem>
-            <FirstScrean />
-          </ScrollItem>
-          <ScrollItem>
-            <Symmary />
-          </ScrollItem>
-          <ItemWithPicture src={SummaryIMG}></ItemWithPicture>
-          <ScrollItem>
-            <Education />
-          </ScrollItem>
-          <ItemWithPicture src={EducationIMG} customClass={'black_bg'}>
-            <MyCertificates />
-          </ItemWithPicture>
-
-          <Projects />
-          <ItemWithPicture src={ContactIMG} customClass={'black_bg'}>
-            <Contacts />
-          </ItemWithPicture>
-          {/* 
-          <Picture src={ContactIMG} customClass={'black_bg'}>
-            <Contacts />
-          </Picture> */}
-        </section>
+    <>
+      {openIsLoading && <IsLoading picture={IsLoadingIMG} />}
+      <div className="App">
+        <NavMenu fnScrollMode={setScrollMode} />
+        <div className="container">
+          <section className="blocks">
+            <ScrollItem>
+              <FirstScrean />
+            </ScrollItem>
+            <ScrollItem>
+              <Symmary />
+            </ScrollItem>
+            <ItemWithPicture src={SummaryIMG}></ItemWithPicture>
+            <ScrollItem>
+              <Education />
+            </ScrollItem>
+            <ItemWithPicture src={EducationIMG} customClass={'black_bg'}>
+              <MyCertificates />
+            </ItemWithPicture>
+            <Projects />
+            <ItemWithPicture src={ContactIMG} customClass={'black_bg'}>
+              <Contacts setOpen={setOpenIsLoading} setAddedValue={setAddedValue} />
+            </ItemWithPicture>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
