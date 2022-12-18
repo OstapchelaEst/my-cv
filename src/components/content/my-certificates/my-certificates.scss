@@ -1,0 +1,46 @@
+@import './../../../styles/constants.scss';
+
+.certificates{
+  width: 50%;
+  margin-left: $gap;
+  &__list{
+  list-style: none;
+  }
+  &__item{
+    padding-left: calc(#{$indexScale}* 1.2);
+    line-height: 1.05;
+    position: relative;
+    &::before{
+      content:'';
+      position: absolute;
+      top: calc(#{$indexScale}* 0.7);
+      left: 0;
+      width: calc(#{$indexScale}* 0.7);
+      height: calc(#{$indexScale}* 0.7);
+      border-radius: 50%;
+      background-color: rgb(232, 138, 56);
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    & a {
+      display: inline-block;
+      margin-left: 10px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease 0s;
+
+      @media (any-hover: hover){
+        &:hover{
+        transform: scale(1.1);
+        }
+
+      & svg {
+        width: calc(#{$indexScale}* 1.5);
+        vertical-align: middle;
+      }
+      
+      }
+    }
+  }
+}

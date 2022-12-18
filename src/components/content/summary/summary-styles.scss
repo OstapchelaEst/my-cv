@@ -1,0 +1,18 @@
+@import './.././../../styles/constants.scss';
+
+.summary {
+  &__container{
+    display: flex;
+  }
+  &__img {
+    height: calc(#{$indexScale}* 1000);
+  }
+
+  &__info {
+    background-color: #000;
+    margin-left: auto;
+    max-width: 50%;
+    padding-left: $gap;
+    font-size: calc(#{$indexScale}* 1.5);
+  }
+}
