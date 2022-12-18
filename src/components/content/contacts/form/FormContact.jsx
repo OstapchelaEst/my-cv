@@ -30,10 +30,10 @@ const FormContact = function ({ className }) {
   function sendEmail() {
     emailjs.sendForm('default_service', 'template_hckb14r', form.current, 'Xm8_bmuuMzAR29I3L').then(
       (result) => {
-        console.log(result.text);
+        console.log('All ok');
       },
       (error) => {
-        console.log(error.text);
+        console.log('Error');
       }
     );
   }
