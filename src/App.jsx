@@ -39,7 +39,11 @@ function App() {
     const items = document.querySelectorAll('.item');
     const zVals = [];
     let isFirstRender = true;
-
+    const whatIsIt = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+      ? 900
+      : 400;
     const setCSSvalues = (top) => {
       let delta = lastPos - top;
       lastPos = top;
@@ -70,7 +74,7 @@ function App() {
             permissionToScrollFUnction.current = false;
             setTimeout(() => {
               permissionToScrollFUnction.current = true;
-            }, 400);
+            }, whatIsIt);
           }
           const actualScrollValue = document.documentElement.scrollTop;
           //console.log('ACTUALE SCROLL VALUE', actualScrollValue);
