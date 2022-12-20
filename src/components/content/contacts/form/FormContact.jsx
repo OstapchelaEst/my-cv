@@ -5,7 +5,6 @@ import TextArea from './TextArea';
 import emailjs from '@emailjs/browser';
 import './form-styles.scss';
 import { useForm } from 'react-hook-form';
-import ResponseStatus from './ResponseStatus';
 
 const validationName = (str) => {
   console.log('VALUE NAME', str);
@@ -20,28 +19,34 @@ const validationEmail = (str) => {
   return template.test(str) ? true : 'Not valid email';
 };
 
-const FormContact = function ({ className, setOpen, setAddedValue }) {
-  const [showResponse, setShowResponse] = useState(false);
-  const [responsePayload, setResponsePayload] = useState('');
+const FormContact = function ({
+  className,
+  setOpenIsLoading,
+  setAddedValue,
+  setResponsePayload,
+  setShowResponse,
+}) {
   const form = useRef();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ mode: 'onBlur' });
 
   const finishRequest = (message) => {
     setShowResponse(true);
     setResponsePayload(message);
-    setOpen(false);
+    setOpenIsLoading(false);
   };
 
   function sendEmail() {
-    setOpen(true);
+    setOpenIsLoading(true);
     setAddedValue(0);
     emailjs
       .sendForm('default_service', 'template_hckb14r', form.current, 'Xm8_bmuuMzAR29I3L')
       .then(() => {
+        reset();
         finishRequest('Your message has been successfully delivered!');
       })
       .catch(() => {
@@ -50,13 +55,6 @@ const FormContact = function ({ className, setOpen, setAddedValue }) {
   }
   return (
     <>
-      {showResponse && (
-        <ResponseStatus
-          setClose={setShowResponse}
-          payload={responsePayload}
-          setAddedValue={setAddedValue}
-        />
-      )}
       <div className="form-wrapper">
         <form
           ref={form}

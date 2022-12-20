@@ -1,0 +1,7 @@
+@import '../../styles/z-indexs.scss';
+.full-screan {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: $fullScreanButton;
+}

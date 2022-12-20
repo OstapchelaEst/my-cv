@@ -1,3 +1,4 @@
+@import '../../styles/z-indexs.scss';
 .is-loading{
   opacity: 0;
   transition: all .4s ease 0s;
@@ -9,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  z-index: $isLoading;
   background-color: rgba(43, 43, 43, 0.351);
   &.visible {
     opacity: 1;

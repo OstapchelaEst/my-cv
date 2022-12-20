@@ -1,5 +1,5 @@
 @import '../../../styles/constants.scss';
-
+@import '../../../styles/z-indexs.scss';
 .projects {
   background-color: #000;
   flex-direction: column;
@@ -19,7 +19,7 @@
   position: relative;
   &::before,&::after{
     content:'';
-    z-index: 20;
+    z-index: $swiper;
     position: absolute;
     top: 0;
     width: calc(#{$indexScale}* 2);

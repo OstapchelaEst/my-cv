@@ -9,11 +9,13 @@ import MyCertificates from './components/content/my-certificates/MyCertificates'
 import Projects from './components/content/projects/Projects';
 import Contacts from './components/content/contacts/Contacts';
 import IsLoading from './components/isLoading/IsLoading';
+import ResponseStatus from './components/content/show-response-status/ResponseStatus';
 
 import EducationIMG from './assets/education1.png';
 import SummaryIMG from './assets/summary__img.png';
 import ContactIMG from './assets/contacts.svg';
 import IsLoadingIMG from './assets/projectsPhotos/isLoadingGifTwo.gif';
+import FullScreanButton from './components/full-screen/FullScreanButton';
 
 function App() {
   const permissionToScrollFUnction = useRef(true);
@@ -21,6 +23,8 @@ function App() {
   const addedValue = useRef(200);
   const scrollMode = useRef('main');
   const [openIsLoading, setOpenIsLoading] = useState(false);
+  const [showResponse, setShowResponse] = useState(false);
+  const [responsePayload, setResponsePayload] = useState('');
   const setScrollMode = (mode) => {
     scrollMode.current = mode;
   };
@@ -102,7 +106,15 @@ function App() {
   return (
     <>
       {openIsLoading && <IsLoading picture={IsLoadingIMG} />}
+      {showResponse && (
+        <ResponseStatus
+          setClose={setShowResponse}
+          payload={responsePayload}
+          setAddedValue={setAddedValue}
+        />
+      )}
       <div className="App">
+        <FullScreanButton />
         <NavMenu fnScrollMode={setScrollMode} />
         <div className="container">
           <section className="blocks">
@@ -121,7 +133,12 @@ function App() {
             </ItemWithPicture>
             <Projects />
             <ItemWithPicture src={ContactIMG} customClass={'black_bg'}>
-              <Contacts setOpen={setOpenIsLoading} setAddedValue={setAddedValue} />
+              <Contacts
+                setOpenIsLoading={setOpenIsLoading}
+                setAddedValue={setAddedValue}
+                setResponsePayload={setResponsePayload}
+                setShowResponse={setShowResponse}
+              />
             </ItemWithPicture>
           </section>
         </div>

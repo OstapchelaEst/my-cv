@@ -4,12 +4,17 @@ import ContactItem from './ContactItem';
 import FormContact from './form/FormContact';
 import './contacts-styles.scss';
 
-const Contacts = ({ setOpen, setAddedValue }) => {
+const Contacts = ({ setOpenIsLoading, setAddedValue, setResponsePayload, setShowResponse }) => {
   return (
     <div className="contacts">
       <div className="contacts__container">
         <div className="contacts__title">{`I'm waiting for your message :`}</div>
-        <FormContact setOpen={setOpen} setAddedValue={setAddedValue} />
+        <FormContact
+          setOpenIsLoading={setOpenIsLoading}
+          setAddedValue={setAddedValue}
+          setResponsePayload={setResponsePayload}
+          setShowResponse={setShowResponse}
+        />
         <ul className="contacts__list">
           {SVG.map((a, i) => (
             <ContactItem
