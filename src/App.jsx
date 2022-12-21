@@ -22,6 +22,7 @@ function App() {
   const lastScrollValue = useRef(0);
   const addedValue = useRef(200);
   const scrollMode = useRef('main');
+  const delayScroll = useRef(400);
   const [openIsLoading, setOpenIsLoading] = useState(false);
   const [showResponse, setShowResponse] = useState(false);
   const [responsePayload, setResponsePayload] = useState('');
@@ -39,10 +40,10 @@ function App() {
     const items = document.querySelectorAll('.item');
     const zVals = [];
     let isFirstRender = true;
-    const whatIsIt = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    delayScroll.current = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     )
-      ? 900
+      ? 1200
       : 400;
     const setCSSvalues = (top) => {
       let delta = lastPos - top;
@@ -65,8 +66,8 @@ function App() {
         );
       });
     };
-    setCSSvalues(0);
 
+    setCSSvalues(0);
     window.onscroll = () => {
       if (!isFirstRender) {
         if (permissionToScrollFUnction.current) {
@@ -74,7 +75,7 @@ function App() {
             permissionToScrollFUnction.current = false;
             setTimeout(() => {
               permissionToScrollFUnction.current = true;
-            }, whatIsIt);
+            }, delayScroll.current);
           }
           const actualScrollValue = document.documentElement.scrollTop;
           //console.log('ACTUALE SCROLL VALUE', actualScrollValue);
