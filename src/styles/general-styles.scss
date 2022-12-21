@@ -33,8 +33,14 @@ body{
   font-size: calc(#{$indexScale}* 1.5);
   line-height: 1.75;
   height: 5500px;
-  opacity: 0;
+  opacity: 0; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+body::-webkit-scrollbar { 
+  display: none; 
+}
+
 body.active {
     transition: all 0.3s ease 0.2s;
     opacity: 1;

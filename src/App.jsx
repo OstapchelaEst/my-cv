@@ -40,6 +40,9 @@ function App() {
     const items = document.querySelectorAll('.item');
     const zVals = [];
     let isFirstRender = true;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
     delayScroll.current = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     )
@@ -71,18 +74,17 @@ function App() {
     window.onscroll = () => {
       if (!isFirstRender) {
         if (permissionToScrollFUnction.current) {
-          if (scrollMode.current !== 'nav-menu') {
+          console.log('DAYYYYN');
+          const actualScrollValue = document.documentElement.scrollTop;
+          console.log('ACTUALE SCROLL VALUE', actualScrollValue);
+          console.log('LAST SCROLL VALUE', lastScrollValue.current);
+          const comparisonValues = actualScrollValue - lastScrollValue.current;
+          console.log('COMPARISION VALUES =========', comparisonValues);
+          if (scrollMode.current !== 'nav-menu' && !isMobile) {
             permissionToScrollFUnction.current = false;
             setTimeout(() => {
               permissionToScrollFUnction.current = true;
             }, delayScroll.current);
-          }
-          const actualScrollValue = document.documentElement.scrollTop;
-          //console.log('ACTUALE SCROLL VALUE', actualScrollValue);
-          //console.log('LAST SCROLL VALUE', lastScrollValue.current);
-          const comparisonValues = actualScrollValue - lastScrollValue.current;
-          //console.log('COMPARISION VALUES =========', comparisonValues);
-          if (scrollMode.current !== 'nav-menu') {
             if (comparisonValues > 0) {
               lastScrollValue.current += addedValue.current;
             } else if (comparisonValues < 0) {
@@ -94,17 +96,16 @@ function App() {
               lastScrollValue.current = 1200;
               return;
             }
+            setCSSvalues(lastScrollValue.current);
           } else {
             lastScrollValue.current = actualScrollValue;
+            setCSSvalues(actualScrollValue);
           }
-          let top = scrollMode.current !== 'nav-menu' ? lastScrollValue.current : actualScrollValue;
-          setCSSvalues(top);
         } else {
           document.documentElement.scrollTop = lastScrollValue.current;
         }
-      } else {
-        isFirstRender = false;
       }
+      isFirstRender = false;
     };
   }, []);
 
