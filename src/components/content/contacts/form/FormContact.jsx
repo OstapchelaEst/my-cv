@@ -7,11 +7,9 @@ import './form-styles.scss';
 import { useForm } from 'react-hook-form';
 
 const validationName = (str) => {
-  console.log('VALUE NAME', str);
   return str.length >= 2 ? true : 'Too short';
 };
 const validationText = (str) => {
-  console.log(str.length);
   return str.length >= 5 ? true : 'So little ? :(';
 };
 const validationEmail = (str) => {
@@ -22,7 +20,7 @@ const validationEmail = (str) => {
 const FormContact = function ({
   className,
   setOpenIsLoading,
-  setAddedValue,
+  setPermissionScroll,
   setResponsePayload,
   setShowResponse,
 }) {
@@ -42,7 +40,7 @@ const FormContact = function ({
 
   function sendEmail() {
     setOpenIsLoading(true);
-    setAddedValue(0);
+    setPermissionScroll(false);
     emailjs
       .sendForm('default_service', 'template_hckb14r', form.current, 'Xm8_bmuuMzAR29I3L')
       .then(() => {

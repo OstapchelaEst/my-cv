@@ -10,14 +10,23 @@
   height: auto;
   z-index: $navMenu;
   transition: all 0.3s ease 0s;
-
-
+  &.close{
+    transform: translateY(-50%);
+  }
+  &.open {
+    transform: translateY(0%);
+    z-index: $fullScreanButton;
+    .menu__btn {
+      transform: rotate(180deg);
+    }
+  }
   &__list{
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
     list-style: none;
-    margin-bottom: 20px; 
+    padding-bottom: calc(#{$indexScale}* 1); 
     background-color: #000;
     position: relative;
   }
@@ -46,11 +55,6 @@
     width: calc(#{$indexScale}* 2.5);
     height:calc(#{$indexScale}* 2.5);
     transition: all 0.3s ease 0s;
-
-    animation-name: btnJumpDown;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-
     &::after{
       content:'';
       position: absolute;
@@ -64,35 +68,15 @@
       border-radius: 50%;
       box-shadow: 0px 0px 10px 10px #000;
     }
-
-    @keyframes btnJumpDown {
-      0%{
-        transform:translateY(0px) ;
-      }
-      10%{
-        transform:translateY(10px) ;
-      }
-      20%{
-        transform:translateY(0px) ;
-      }
-    }
-
-    @keyframes btnJump {
-      0%{
-        transform:translateY(0px) rotate(180deg);
-      }
-      10%{
-        transform:translateY(-10px) rotate(180deg);
-      }
-      20%{
-        transform:translateY(0px) rotate(180deg);
-      }
-    }
-    
     & svg {
       fill: #fff;
       position: relative;
       transition: all 0.3s ease 0s;
+      @media (any-hover: hover){
+        &:hover{
+          fill: $accentColor;
+        }
+      }
   }
 }
 }

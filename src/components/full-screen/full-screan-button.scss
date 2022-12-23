@@ -1,7 +1,19 @@
 @import '../../styles/z-indexs.scss';
+@import '../../styles/constants.scss';
 .full-screan {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 6px;
   z-index: $fullScreanButton;
+  & svg {
+    width: calc(#{$indexScale}* 2.5);
+    height: calc(#{$indexScale}* 2.5);
+    fill: #fff;
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover){
+      &:hover{  
+        fill: $accentColor;
+      }
+    }
+  }
 }

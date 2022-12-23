@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './response-statys-styles.scss';
-const ResponseStatus = ({ payload, setClose, setAddedValue }) => {
+const ResponseStatus = ({ payload, setClose, setPermissionScroll }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setVisible(true);
   }, []);
   const close = () => {
     setVisible(false);
-    setAddedValue(200);
+    setPermissionScroll(true);
     setTimeout(() => {
       setClose(false);
     }, 300);
