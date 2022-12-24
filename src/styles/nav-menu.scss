@@ -48,6 +48,9 @@
       }
     }
   }
+  &__link.this-parth{
+    color:$accentColor
+  }
 
   &__btn {
     display: block;
@@ -79,4 +82,25 @@
       }
   }
 }
+}
+
+.parth-200 .parth-summary{
+  color: $accentColor;
+  pointer-events: none;
+}
+.parth-600 .parth-education{
+  color: $accentColor;
+  pointer-events: none;
+}
+.parth-800 .parth-sertificates{
+  color: $accentColor;
+  pointer-events: none;
+}
+.parth-1000 .parth-projects{
+  color: $accentColor;
+  pointer-events: none;
+}
+.parth-1200 .parth-contacts {
+color: $accentColor;
+pointer-events: none;
 }

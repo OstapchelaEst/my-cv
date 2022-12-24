@@ -5,3 +5,5 @@ export const MenuData = [
   { name: 'Projects', scrollValue: 1000 },
   { name: 'Contacts', scrollValue: 1200 },
 ];
+
+export const arrScrollValues = [200, 600, 800, 1000, 1200];

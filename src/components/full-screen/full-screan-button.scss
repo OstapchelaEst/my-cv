@@ -2,7 +2,7 @@
 @import '../../styles/constants.scss';
 .full-screan {
   position: fixed;
-  top: 6px;
+  top: calc(#{$indexScale}* 0.3);
   right: 6px;
   z-index: $fullScreanButton;
   & svg {

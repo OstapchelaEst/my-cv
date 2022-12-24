@@ -1,10 +1,13 @@
 @import './../../../styles/constants.scss';
 
 .education{
+  height: 100%;
+  max-width: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  background-color: #000;
     &__container{
       padding-left: $gap;
-      background-color: #000;
-      max-width: 50%;
-      margin-left: auto;
     }
   }

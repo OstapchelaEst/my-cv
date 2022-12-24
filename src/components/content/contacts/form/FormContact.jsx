@@ -5,25 +5,29 @@ import TextArea from './TextArea';
 import emailjs from '@emailjs/browser';
 import './form-styles.scss';
 import { useForm } from 'react-hook-form';
+import { i18ObjContacts } from '../../../../data/contacts';
 
 const validationName = (str) => {
-  return str.length >= 2 ? true : 'Too short';
+  return str.length >= 2 ? true : JSON.stringify({ en: 'Too short', ru: 'Слишком короткое' });
 };
 const validationText = (str) => {
-  return str.length >= 5 ? true : 'So little ? :(';
+  return str.length >= 5 ? true : JSON.stringify({ en: 'So little ? :(', ru: 'Так мало? :(' });
 };
 const validationEmail = (str) => {
   const template = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{1,4})$/;
-  return template.test(str) ? true : 'Not valid email';
+  return template.test(str)
+    ? true
+    : JSON.stringify({ en: 'Not valid email', ru: 'Некорректный адрест почты' });
 };
 
-const FormContact = function ({
+const FormContact = ({
+  lang,
   className,
   setOpenIsLoading,
   setPermissionScroll,
   setResponsePayload,
   setShowResponse,
-}) {
+}) => {
   const form = useRef();
   const {
     register,
@@ -45,10 +49,10 @@ const FormContact = function ({
       .sendForm('default_service', 'template_hckb14r', form.current, 'Xm8_bmuuMzAR29I3L')
       .then(() => {
         reset();
-        finishRequest('Your message has been successfully delivered!');
+        finishRequest(i18ObjContacts[lang].successfullyResponse);
       })
       .catch(() => {
-        finishRequest('Uuuups, something is wrong with the service, repeat the attempt later :(');
+        finishRequest(i18ObjContacts[lang].errorResponse);
       });
   }
   return (
@@ -61,19 +65,20 @@ const FormContact = function ({
         >
           <FormInput
             propsForm={{
-              ...register('form-contact-name', {
+              ...register('name', {
                 required: true,
                 validate: {
                   customFn: (value) => validationName(value),
                 },
               }),
             }}
-            errorText={errors}
-            name={'form-contact-name'}
-            labelText={'You name:'}
-            id={'form-contact-name'}
+            name={'name'}
+            labelText={i18ObjContacts[lang].inputName}
+            id={'name'}
             type={'text'}
             placeholder={'Till'}
+            lang={lang}
+            errors={errors}
           />
 
           <FormInput
@@ -85,12 +90,13 @@ const FormContact = function ({
                 },
               }),
             }}
-            errorText={errors}
             name={'form-contact-email'}
-            labelText={'You email:'}
+            labelText={i18ObjContacts[lang].inputEmail}
             id={'form-contact-email'}
             type={'email'}
             placeholder={'Lindemann@example.com'}
+            lang={lang}
+            errors={errors}
           />
 
           <TextArea
@@ -102,14 +108,15 @@ const FormContact = function ({
                 },
               }),
             }}
-            errorText={errors}
             name={'form-contact-message'}
-            labelText={'You message:'}
+            labelText={i18ObjContacts[lang].inputMessage}
             id={'form-contact-message'}
             classNameInput={'custom-text-area'}
             rw={3}
+            lang={lang}
+            errors={errors}
           />
-          <FormButton type={'submit'}>Write me</FormButton>
+          <FormButton type={'submit'}>{i18ObjContacts[lang].buttonWrite}</FormButton>
         </form>
       </div>
     </>

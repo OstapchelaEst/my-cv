@@ -1,10 +1,10 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MenuData } from '../../data/menu-data';
 import { arrowSVG } from './arrowSVG';
 import MenuItem from './NavMenuItem';
 
-const NavMenu = ({ setLastScrollValue, setCSSvalues }) => {
+const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function Menu() {
@@ -20,7 +20,7 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues }) => {
   }
 
   return (
-    <nav className={`menu ${isOpen ? 'open' : 'close'}`}>
+    <nav className={`menu ${isOpen ? 'open' : 'close'} ${customClass ? customClass : ''}`}>
       <ul className="menu__list">
         {MenuData.map((a, i) => {
           return (

@@ -1,6 +1,12 @@
 @import './.././../../styles/constants.scss';
 
 .summary {
+  height: 100%;
+  max-width: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  background-color: #000;
   &__container{
     display: flex;
   }
@@ -9,9 +15,6 @@
   }
 
   &__info {
-    background-color: #000;
-    margin-left: auto;
-    max-width: 50%;
     padding-left: $gap;
     font-size: calc(#{$indexScale}* 1.5);
   }

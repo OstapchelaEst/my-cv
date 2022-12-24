@@ -6,7 +6,7 @@ import { EffectCoverflow, Pagination } from 'swiper';
 import { ProjectsInfo } from '../../../data/projects';
 import SlideItem from './SlideItem';
 
-export const SwiperBlock = () => {
+export const SwiperBlock = ({ lang }) => {
   return (
     <>
       <Swiper
@@ -30,7 +30,7 @@ export const SwiperBlock = () => {
             <SwiperSlide key={i}>
               <SlideItem
                 name={a.name}
-                description={a.description}
+                description={a.description[lang]}
                 tools={a.tools}
                 src={a.imgSrc}
                 url={a.url}

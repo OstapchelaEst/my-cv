@@ -1,4 +1,6 @@
 import React from 'react';
+import { showError } from './show-error-fn';
+
 const FormInput = function ({
   type,
   placeholder,
@@ -6,14 +8,15 @@ const FormInput = function ({
   id,
   classNameLabel,
   labelText,
-  errorText,
   name,
   propsForm,
+  lang,
+  errors,
 }) {
   return (
     <div className="input-item">
-      <div className={`input-item__error-text ${errorText[name] ? 'error' : ''}`}>
-        {errorText[name] ? (errorText[name].message ? errorText[name].message : 'Requerid') : ''}
+      <div className={`input-item__error-text ${errors[name] ? 'error' : ''}`}>
+        {showError(errors, name, lang)}
       </div>
       <label htmlFor={id} className={`input-item__label ${classNameLabel ? classNameLabel : ''}`}>
         {labelText}

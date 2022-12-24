@@ -16,6 +16,8 @@ import SummaryIMG from './assets/summary__img.png';
 import ContactIMG from './assets/contacts.svg';
 import IsLoadingIMG from './assets/projectsPhotos/isLoadingGifTwo.gif';
 import FullScreanButton from './components/full-screen/FullScreanButton';
+import ChooseLang from './components/choose-lang/ChoouseLang';
+import { arrScrollValues } from './data/menu-data';
 
 function App() {
   const permissionToScrollFUnction = useRef(true);
@@ -27,52 +29,8 @@ function App() {
   const [openIsLoading, setOpenIsLoading] = useState(false);
   const [showResponse, setShowResponse] = useState(false);
   const [responsePayload, setResponsePayload] = useState('');
-
-  const setLastScrollValue = useCallback((value) => {
-    lastScrollValue.current = value;
-  }, []);
-  const setPermissionScroll = useCallback((value) => {
-    permissionToScrollFUnction.current = value;
-  }, []);
-  const setStartTouchCords = useCallback((event) => {
-    startTouchCordsY.current = event.changedTouches[0].clientY;
-    startTouchCordsX.current = event.changedTouches[0].clientX;
-  }, []);
-  const scrollOnWheel = useCallback((event) => {
-    if (permissionToScrollFUnction.current) {
-      const countYscroll = event.deltaY;
-      if (countYscroll > 0 && lastScrollValue.current < 1200) {
-        lastScrollValue.current += 200;
-      } else if (countYscroll < 0 && lastScrollValue.current > 0) {
-        lastScrollValue.current -= 200;
-      }
-      document.documentElement.scrollTop = lastScrollValue.current;
-      setCSSvalues(lastScrollValue.current);
-      permissionToScrollFUnction.current = false;
-      setTimeout(() => {
-        permissionToScrollFUnction.current = true;
-      }, 150);
-    }
-  }, []);
-  const scrollOnTouch = useCallback((event) => {
-    if (permissionToScrollFUnction.current) {
-      const touchEndCordsY = event.changedTouches[0].clientY;
-      const touchEndCordsX = event.changedTouches[0].clientX;
-      const axisY = Math.abs(startTouchCordsY.current - touchEndCordsY);
-      const axisX = Math.abs(startTouchCordsX.current - touchEndCordsX);
-      if (axisY < axisX) return;
-      if (axisY < 20) return;
-      if (startTouchCordsY.current === touchEndCordsY) return;
-      if (startTouchCordsY.current > touchEndCordsY) {
-        if (lastScrollValue.current < 1200) {
-          lastScrollValue.current += 200;
-        }
-      } else if (lastScrollValue.current > 0) {
-        lastScrollValue.current -= 200;
-      }
-      setCSSvalues(lastScrollValue.current);
-    }
-  }, []);
+  const [lang, setLang] = useState('en');
+  const [visitParth, setVisitParth] = useState('parth');
   const setClosesCSSvalues = useCallback(() => {
     let zSpasing = -1000;
     let lastPos = zSpasing / 5;
@@ -99,8 +57,67 @@ function App() {
       });
     };
   }, []);
-
   const setCSSvalues = setClosesCSSvalues();
+  const isVisit = useCallback((scrollValue, arrScrollValues) => {
+    if (arrScrollValues.includes(scrollValue)) {
+      setVisitParth(`parth-${scrollValue}`);
+    } else {
+      setVisitParth(`parth`);
+    }
+  }, []);
+  const setLastScrollValue = useCallback((value) => {
+    lastScrollValue.current = value;
+  }, []);
+  const setPermissionScroll = useCallback((value) => {
+    permissionToScrollFUnction.current = value;
+  }, []);
+  const setStartTouchCords = useCallback((event) => {
+    startTouchCordsY.current = event.changedTouches[0].clientY;
+    startTouchCordsX.current = event.changedTouches[0].clientX;
+  }, []);
+  const scrollOnWheel = useCallback(
+    (event) => {
+      if (permissionToScrollFUnction.current) {
+        const countYscroll = event.deltaY;
+        if (countYscroll > 0 && lastScrollValue.current < 1200) {
+          lastScrollValue.current += 200;
+        } else if (countYscroll < 0 && lastScrollValue.current > 0) {
+          lastScrollValue.current -= 200;
+        }
+        document.documentElement.scrollTop = lastScrollValue.current;
+        isVisit(lastScrollValue.current, arrScrollValues);
+        setCSSvalues(lastScrollValue.current);
+        permissionToScrollFUnction.current = false;
+
+        setTimeout(() => {
+          permissionToScrollFUnction.current = true;
+        }, 150);
+      }
+    },
+    [setCSSvalues, isVisit]
+  );
+  const scrollOnTouch = useCallback(
+    (event) => {
+      if (permissionToScrollFUnction.current) {
+        const touchEndCordsY = event.changedTouches[0].clientY;
+        const touchEndCordsX = event.changedTouches[0].clientX;
+        const axisY = Math.abs(startTouchCordsY.current - touchEndCordsY);
+        const axisX = Math.abs(startTouchCordsX.current - touchEndCordsX);
+        if (axisY < axisX) return;
+        if (axisY < 20) return;
+        if (startTouchCordsY.current === touchEndCordsY) return;
+        if (startTouchCordsY.current > touchEndCordsY) {
+          if (lastScrollValue.current < 1200) {
+            lastScrollValue.current += 200;
+          }
+        } else if (lastScrollValue.current > 0) {
+          lastScrollValue.current -= 200;
+        }
+        setCSSvalues(lastScrollValue.current);
+      }
+    },
+    [setCSSvalues]
+  );
 
   useEffect(() => {
     document.body.classList.add('active');
@@ -125,25 +142,31 @@ function App() {
         onTouchEnd={scrollOnTouch}
       >
         <FullScreanButton />
-        <NavMenu setLastScrollValue={setLastScrollValue} setCSSvalues={setCSSvalues} />
+        <ChooseLang lang={lang} setLang={setLang} />
+        <NavMenu
+          customClass={visitParth}
+          setLastScrollValue={setLastScrollValue}
+          setCSSvalues={setCSSvalues}
+        />
         <div className="container">
           <section className="blocks">
             <ScrollItem>
               <FirstScrean />
             </ScrollItem>
             <ScrollItem>
-              <Symmary />
+              <Symmary lang={lang} />
             </ScrollItem>
             <ItemWithPicture src={SummaryIMG}></ItemWithPicture>
             <ScrollItem>
-              <Education />
+              <Education lang={lang} />
             </ScrollItem>
             <ItemWithPicture src={EducationIMG} customClass={'black_bg'}>
-              <MyCertificates />
+              <MyCertificates lang={lang} />
             </ItemWithPicture>
-            <Projects />
+            <Projects lang={lang} />
             <ItemWithPicture src={ContactIMG} customClass={'black_bg'}>
               <Contacts
+                lang={lang}
                 setOpenIsLoading={setOpenIsLoading}
                 setResponsePayload={setResponsePayload}
                 setShowResponse={setShowResponse}

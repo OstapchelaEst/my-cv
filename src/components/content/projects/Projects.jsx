@@ -1,15 +1,16 @@
 import React from 'react';
+import { projectsTitle } from '../../../data/projects';
 import SwiperBlock from './Swiper';
 import './swiper-style.scss';
-const Projects = function () {
+const Projects = ({ lang }) => {
   return (
     <div className="item projects">
       <div className="projects__container">
         <div className="projects__title title">
-          <span>My Projects</span>
+          <span>{projectsTitle[lang]}</span>
         </div>
       </div>
-      <SwiperBlock />
+      <SwiperBlock lang={lang} />
     </div>
   );
 };
