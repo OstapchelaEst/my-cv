@@ -114,9 +114,10 @@ function App() {
           lastScrollValue.current -= 200;
         }
         setCSSvalues(lastScrollValue.current);
+        isVisit(lastScrollValue.current, arrScrollValues);
       }
     },
-    [setCSSvalues]
+    [setCSSvalues, isVisit]
   );
 
   useEffect(() => {
@@ -147,6 +148,7 @@ function App() {
           customClass={visitParth}
           setLastScrollValue={setLastScrollValue}
           setCSSvalues={setCSSvalues}
+          setVisitParth={setVisitParth}
         />
         <div className="container">
           <section className="blocks">

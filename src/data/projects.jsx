@@ -7,7 +7,7 @@ import SkyGlass from './../assets/projectsPhotos/skyGlass.png';
 import WebPlayer from './../assets/projectsPhotos/webPlayer.png';
 import Shelter from './../assets/projectsPhotos/Shelter.png';
 import CV from './../assets/projectsPhotos/portfolio.png';
-
+import AppManager from './../assets/projectsPhotos/appManager.png';
 export const projectsTitle = {
   en: `My projects`,
   ru: `Мои проекты`,
@@ -26,6 +26,17 @@ export const ProjectsInfo = [
     tools: 'React, react-hook-forms, SCSS',
     imgSrc: CV,
     url: '/',
+  },
+  {
+    name: 'App-manager',
+    description: {
+      en: 'App for creating task-boards',
+      ru: `Приложение для создания task-boards`,
+    },
+    tools:
+      'TypeScript, React, React-router, Redux-toolkit, react-hook-form, beautiful dnd, axios, socket.io, SCSS',
+    imgSrc: AppManager,
+    url: 'https://orla90.github.io/Project-Management-App/',
   },
   {
     name: 'gallery',

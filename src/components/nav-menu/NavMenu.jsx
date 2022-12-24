@@ -4,7 +4,7 @@ import { MenuData } from '../../data/menu-data';
 import { arrowSVG } from './arrowSVG';
 import MenuItem from './NavMenuItem';
 
-const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass }) => {
+const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function Menu() {
@@ -17,6 +17,7 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass }) => {
     document.documentElement.scrollTo(0, step);
     setLastScrollValue(step);
     setCSSvalues(step);
+    setVisitParth(`parth-${step}`);
   }
 
   return (
