@@ -4,7 +4,7 @@
 .lang {
   position: fixed;
   z-index: $fullScreanButton;
-  top: calc(#{$indexScale}* 0.05);
+  top: calc(#{$indexScale}* 0.4);
   right: calc(#{$indexScale}* 4);
   color: #fff;
   font-weight: 600;

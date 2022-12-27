@@ -9,6 +9,9 @@
     font-size: calc(#{$indexScale}* 1.3);
     margin-bottom: 7px;
     cursor: pointer;
+    @media (max-width: 600px){
+      font-size: calc(#{$indexScale}* 2.2);
+    }
   }
   
   &__input{
@@ -21,6 +24,9 @@
     background-color: rgb(255, 255, 255);
     color: #000;
     transition: all 0.3s ease 0s;
+    @media (max-width: 600px){
+      font-size: calc(#{$indexScale}* 2.2); 
+    }
     &.custom-text-area{
       font-family:"Crimson Pro",serif;
     }
@@ -37,6 +43,9 @@
     right: 0px;
     opacity: 0;
     transition: all 0.3s ease 0s;
+    @media (max-width: 600px){
+      font-size: calc(#{$indexScale}* 2.2);
+    }
   }
 
   
@@ -64,6 +73,9 @@
     background-color:$accentColor;
     animation-duration: 1.1s;
     transition: all 0.3s ease 0s;
+    @media (max-width: 600px){
+      font-size: calc(#{$indexScale}* 2.5);
+    }
     @media (any-hover: hover){
       &:hover{
         animation-name: buttonAnim;
@@ -88,6 +100,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 600px){
+      padding: 20px 0px;
+  }
 }
 
 .default-form {

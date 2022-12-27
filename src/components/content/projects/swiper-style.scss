@@ -8,6 +8,9 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    @media (max-width: 600px){
+      font-size:  calc(#{$indexScale}* 2.5);  
+    }
   }
 }
 
@@ -16,7 +19,11 @@
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  position: relative;
+  position: relative; 
+  @media (max-width: 600px){
+    padding-top: 20px;
+    padding-bottom: 20px;  
+  }
   &::before,&::after{
     content:'';
     z-index: $swiper;
@@ -41,7 +48,9 @@
   background-size: cover;
   width: calc(#{$indexScale}* 20);
   height: fit-content;
-
+  @media (max-width: 600px){
+    width: calc(#{$indexScale}* 30);
+  }
 }
 
 .swiper-slide img {
@@ -70,24 +79,32 @@
   opacity: .2;
   transition: all 0.75s ease 0s;
   filter: blur(3px);
-
+  font-size:calc(#{$indexScale}* 1.2) ;
+  @media (max-width: 600px){
+    font-size:  calc(#{$indexScale}* 2.2);
+  }
   &__title{
     text-align: center;
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: uppercase;
+    font-size:calc(#{$indexScale}* 1.5);
+    @media (max-width: 600px){
+      font-size:calc(#{$indexScale}* 2.5) ;
+    }
   }
   & img {
     margin-bottom: 10px;
     border-radius: 10px;
   }
   &__description{
-    font-size:calc(#{$indexScale}* 1.2) ;
-margin-bottom: 10px;
+
+  margin-bottom: 10px;
   }
   &__tools{
-    font-size:calc(#{$indexScale}* 1.2) ;
+
     margin-bottom: calc(#{$indexScale}* 1.5);
+
   }
   &__link{
     display: block;

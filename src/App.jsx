@@ -113,6 +113,7 @@ function App() {
         } else if (lastScrollValue.current > 0) {
           lastScrollValue.current -= 200;
         }
+        console.log("i'm working");
         setCSSvalues(lastScrollValue.current);
         isVisit(lastScrollValue.current, arrScrollValues);
       }
@@ -158,15 +159,15 @@ function App() {
             <ScrollItem>
               <Symmary lang={lang} />
             </ScrollItem>
-            <ItemWithPicture src={SummaryIMG}></ItemWithPicture>
+            <ItemWithPicture customClass={'summary-img'} src={SummaryIMG}></ItemWithPicture>
             <ScrollItem>
               <Education lang={lang} />
             </ScrollItem>
-            <ItemWithPicture src={EducationIMG} customClass={'black_bg'}>
+            <ItemWithPicture src={EducationIMG} customClass={'black_bg my-certificates'}>
               <MyCertificates lang={lang} />
             </ItemWithPicture>
             <Projects lang={lang} />
-            <ItemWithPicture src={ContactIMG} customClass={'black_bg'}>
+            <ItemWithPicture src={ContactIMG} customClass={'black_bg my-contacts'}>
               <Contacts
                 lang={lang}
                 setOpenIsLoading={setOpenIsLoading}

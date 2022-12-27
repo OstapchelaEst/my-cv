@@ -32,7 +32,7 @@ body{
   font-weight: 300;
   font-size: calc(#{$indexScale}* 1.5);
   line-height: 1.75;
-  height: 5500px;
+  //height: 5500px;
   opacity: 0; 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -58,7 +58,6 @@ textarea {
     font-weight: 800;
     letter-spacing: 0.2em;
     position: relative;
-
     &::after{
       content:'';
       position: absolute;
@@ -67,6 +66,7 @@ textarea {
       width: 110%;
       height: 3px;
       background-color: $accentColor;
+      border-radius: 2px;
     }
   }
 }

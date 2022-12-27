@@ -36,6 +36,9 @@
     &:not(:last-child) {
       margin-right: calc(#{$indexScale}* 1.3);
     }
+    @media (max-width: 600px){
+      font-size: calc(#{$indexScale}* 2);
+    }
   }
 
   &__link{
@@ -55,8 +58,8 @@
   &__btn {
     display: block;
     position: relative;
-    width: calc(#{$indexScale}* 2.5);
-    height:calc(#{$indexScale}* 2.5);
+    width: calc(#{$indexScale}* 3);
+    height:calc(#{$indexScale}* 3);
     transition: all 0.3s ease 0s;
     &::after{
       content:'';

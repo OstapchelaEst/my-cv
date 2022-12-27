@@ -17,13 +17,18 @@ const FullScreanButton = () => {
       }
     };
     fscreen.addEventListener('fullscreenchange', handlerFullScreen);
+    return () => {
+      fscreen.removeEventListener('fullscreenchange', handlerFullScreen);
+    };
   }, []);
   return (
-    <div className="full-screan">
-      <button className="full-screan__button" type="button" onClick={toogleFullScrean}>
-        {isFullScrean ? setFullScrean : closeFullScrean}
-      </button>
-    </div>
+    fscreen.fullscreenEnabled && (
+      <div className="full-screan">
+        <button className="full-screan__button" type="button" onClick={toogleFullScrean}>
+          {isFullScrean ? setFullScrean : closeFullScrean}
+        </button>
+      </div>
+    )
   );
 };
 
