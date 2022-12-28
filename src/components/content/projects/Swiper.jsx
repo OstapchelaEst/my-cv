@@ -31,7 +31,7 @@ export const SwiperBlock = ({ lang }) => {
               <SlideItem
                 name={a.name}
                 description={a.description[lang]}
-                tools={a.tools}
+                tools={a.tools[lang]}
                 src={a.imgSrc}
                 url={a.url}
               />

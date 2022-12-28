@@ -1,9 +1,14 @@
 import React from 'react';
-const Certificat = function ({ text, url, svg }) {
+import certificateSVG from '../../../assets/certificate.svg';
+const Certificat = function ({ text, url }) {
   return (
     <li className="certificates__item">
-      {text}
-      <a target="__blank" href={url} dangerouslySetInnerHTML={{ __html: `${svg}` }}></a>
+      <a target="__blank" href={url}>
+        {text}
+      </a>
+      <a target="__blank" href={url}>
+        <img className="certificates__picture" src={certificateSVG} alt="certeficate picture" />
+      </a>
     </li>
   );
 };

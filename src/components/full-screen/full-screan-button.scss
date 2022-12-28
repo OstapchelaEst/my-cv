@@ -1,10 +1,8 @@
 @import '../../styles/z-indexs.scss';
 @import '../../styles/constants.scss';
 .full-screan {
-  position: fixed;
-  top: calc(#{$indexScale}* 0.7);
-  right: 6px;
-  z-index: $fullScreanButton;
+  width: calc(#{$indexScale}* 2.5);
+  height: calc(#{$indexScale}* 2.5);
   & svg {
     width: calc(#{$indexScale}* 2.5);
     height: calc(#{$indexScale}* 2.5);

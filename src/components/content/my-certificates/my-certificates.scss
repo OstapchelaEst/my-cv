@@ -46,7 +46,6 @@
       margin-bottom: 10px;
     }
     & a {
-      display: inline-block;
       margin-left: 10px;
       color: #fff;
       text-decoration: none;
@@ -54,15 +53,19 @@
 
       @media (any-hover: hover){
         &:hover{
-        transform: scale(1.1);
-        }
-
-      & svg {
-        width: calc(#{$indexScale}* 1.5);
-        vertical-align: middle;
-      }
-      
+          & img {
+            transform: scale(1.1);
+          }
+        }      
       }
     }
+  }
+  &__picture{
+    vertical-align: bottom;
+    max-width: calc(#{$indexScale}* 2.3);
+    height: auto;
+    width: 100%;
+    margin-bottom: -3px;
+    transition: all 0.3s ease 0s;
   }
 }

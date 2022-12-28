@@ -18,6 +18,7 @@ import IsLoadingIMG from './assets/projectsPhotos/isLoadingGifTwo.gif';
 import FullScreanButton from './components/full-screen/FullScreanButton';
 import ChooseLang from './components/choose-lang/ChoouseLang';
 import { arrScrollValues } from './data/menu-data';
+import ControllsMenu from './components/controlls-menu/controllsMenu';
 
 function App() {
   const permissionToScrollFUnction = useRef(true);
@@ -143,8 +144,13 @@ function App() {
         onTouchStart={setStartTouchCords}
         onTouchEnd={scrollOnTouch}
       >
-        <FullScreanButton />
-        <ChooseLang lang={lang} setLang={setLang} />
+        <ControllsMenu>
+          <>
+            <ChooseLang lang={lang} setLang={setLang} />
+            <FullScreanButton />
+          </>
+        </ControllsMenu>
+
         <NavMenu
           customClass={visitParth}
           setLastScrollValue={setLastScrollValue}

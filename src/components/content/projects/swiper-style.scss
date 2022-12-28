@@ -103,9 +103,7 @@
   margin-bottom: 10px;
   }
   &__tools{
-
     margin-bottom: calc(#{$indexScale}* 1.5);
-
   }
   &__link{
     display: block;
@@ -113,7 +111,7 @@
     background-color:$accentColor;
     color: #fff;
     text-align: center;
-    padding: 5px ;
+    padding: calc(#{$indexScale}* 0.5) ;
     border-radius: 10px;
     text-transform: uppercase;
     animation-duration: 1s;
