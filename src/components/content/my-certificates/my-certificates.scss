@@ -46,11 +46,9 @@
       margin-bottom: 10px;
     }
     & a {
-      margin-left: 10px;
       color: #fff;
       text-decoration: none;
       transition: all 0.3s ease 0s;
-
       @media (any-hover: hover){
         &:hover{
           & img {
@@ -62,10 +60,11 @@
   }
   &__picture{
     vertical-align: bottom;
-    max-width: calc(#{$indexScale}* 2.3);
-    height: auto;
+    max-width: calc(#{$indexScale}* 2.3); 
     width: 100%;
+    height: auto;   
     margin-bottom: -3px;
+    margin-left:  calc(#{$indexScale}* 1);
     transition: all 0.3s ease 0s;
   }
 }

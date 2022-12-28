@@ -101,7 +101,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.6s linear 0s, transform 0.75s ease 0s;
+  transition: opacity 0.6s linear 0s, transform 0.75s ease 0s, visibility 0.6s linear 0s;
   will-change: transform;
   transform-style: preserve-3d;
   padding: 15px;

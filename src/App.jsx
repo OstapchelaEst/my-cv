@@ -45,15 +45,17 @@ function App() {
         const frame = allItems.current[i],
           transform = `translateZ(${zVals[i]}px)`,
           opacity = zVals[i] < Math.abs(zSpasing) / 30 ? 1 : 0,
+          vis = zVals[i] < Math.abs(zSpasing) / 30 ? 'visible' : 'hidden',
           pointerEvents =
             zVals[i] < Math.abs(zSpasing) / 30 ? (zVals[i] <= -500 ? 'none' : 'all') : 'none';
         frame.setAttribute(
           'style',
+          `      
+          transform:${transform}; 
+          opacity:${opacity}; 
+          visibility:${vis};
+          pointer-events:${pointerEvents};
           `
-      transform:${transform}; 
-      opacity:${opacity}; 
-      pointer-events:${pointerEvents}
-      `
         );
       });
     };
