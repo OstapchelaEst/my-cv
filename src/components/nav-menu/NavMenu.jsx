@@ -24,6 +24,7 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth 
     setLastScrollValue(step);
     setCSSvalues(step);
     setVisitParth(`parth-${step}`);
+    setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
   };
   const onResize = () => {
     if (!isOpen) setHowManuPxTranslate(heightNavMenu.current.offsetHeight);

@@ -65,16 +65,16 @@ const FormContact = ({
         >
           <FormInput
             propsForm={{
-              ...register('name', {
+              ...register('form-contact-name', {
                 required: true,
                 validate: {
                   customFn: (value) => validationName(value),
                 },
               }),
             }}
-            name={'name'}
+            name={'form-contact-name'}
             labelText={i18ObjContacts[lang].inputName}
-            id={'name'}
+            id={'form-contact-name'}
             type={'text'}
             placeholder={'Till'}
             lang={lang}
