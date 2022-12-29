@@ -10,11 +10,7 @@
   height: auto;
   z-index: $navMenu;
   transition: all 0.3s ease 0s;
-  &.close{
-    transform: translateY(-50%);
-  }
   &.open {
-    transform: translateY(0%);
     z-index: $fullScreanButton;
     .menu__btn {
       transform: rotate(180deg);
@@ -26,9 +22,18 @@
     width: 100%;
     justify-content: center;
     list-style: none;
-    padding-bottom: calc(#{$indexScale}* 1); 
+
     background-color: #000;
     position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height:  calc(#{$indexScale}* 3.5);
+      background-image: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(41, 53, 86, 0) 100%);
+    }
   }
 
   &__item{
@@ -60,6 +65,7 @@
     position: relative;
     width: calc(#{$indexScale}* 3);
     height:calc(#{$indexScale}* 3);
+    margin-top: calc(#{$indexScale}* .5); 
     transition: all 0.3s ease 0s;
     &::after{
       content:'';
