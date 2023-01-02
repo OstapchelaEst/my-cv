@@ -4,7 +4,7 @@ import { MenuData } from '../../data/menu-data';
 import { arrowSVG } from './arrowSVG';
 import MenuItem from './NavMenuItem';
 
-const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth }) => {
+const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth, lang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [howManuPxTranslate, setHowManuPxTranslate] = useState(0);
   const heightNavMenu = useRef();
@@ -43,20 +43,20 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth 
       style={{ transform: `translateY(-${howManuPxTranslate}px)` }}
       className={`menu ${isOpen ? 'open' : 'close'} ${customClass ? customClass : ''}`}
     >
-      <div className="test-class">
-        <ul className="menu__list" ref={heightNavMenu}>
-          {MenuData.map((a) => {
-            return (
-              <MenuItem
-                key={a.name + a.scrollValue}
-                name={a.name}
-                scrollValue={a.scrollValue}
-                fnScroll={scrollToBlock}
-              />
-            );
-          })}
-        </ul>
-      </div>
+      <ul className="menu__list" ref={heightNavMenu}>
+        {MenuData.map((a) => {
+          return (
+            <MenuItem
+              key={a.name[lang] + a.scrollValue}
+              name={a.name[lang]}
+              customClassName={a.name.en}
+              scrollValue={a.scrollValue}
+              fnScroll={scrollToBlock}
+            />
+          );
+        })}
+      </ul>
+
       <button
         onClick={Menu}
         className="menu__btn"

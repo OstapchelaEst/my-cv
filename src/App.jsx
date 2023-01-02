@@ -158,6 +158,7 @@ function App() {
           setLastScrollValue={setLastScrollValue}
           setCSSvalues={setCSSvalues}
           setVisitParth={setVisitParth}
+          lang={lang}
         />
         <div className="container">
           <section className="blocks">

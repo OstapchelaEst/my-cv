@@ -1,9 +1,9 @@
 export const MenuData = [
-  { name: 'Summary', scrollValue: 200 },
-  { name: 'Education', scrollValue: 600 },
-  { name: 'Sertificates', scrollValue: 800 },
-  { name: 'Projects', scrollValue: 1000 },
-  { name: 'Contacts', scrollValue: 1200 },
+  { name: { en: 'Summary', ru: 'О себе' }, scrollValue: 200 },
+  { name: { en: 'Education', ru: 'Образование' }, scrollValue: 600 },
+  { name: { en: 'Sertificates', ru: 'Сертификаты' }, scrollValue: 800 },
+  { name: { en: 'Projects', ru: 'Проекты' }, scrollValue: 1000 },
+  { name: { en: 'Contacts', ru: 'Контакты' }, scrollValue: 1200 },
 ];
 
 export const arrScrollValues = [200, 600, 800, 1000, 1200];

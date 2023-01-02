@@ -6,21 +6,21 @@ export const certificates = [
   {
     text: {
       en: `Succesfully completed "The Rolling Scopes School 2022Q3 (REACT)" course`,
-      ru: `Успешно закончил курсы "The Rolling Scopes School 2022Q3 (REACT)"`,
+      ru: `Успешно закончил курс "The Rolling Scopes School 2022Q3 (REACT)"`,
     },
     url: `https://app.rs.school/certificate/32ouxxn7`,
   },
   {
     text: {
       en: `Succesfully completed "The Rolling Scopes School JS/FE Pre-School 2022 (JAVASCRIPT)" course`,
-      ru: `Успешно закончил курсы "The Rolling Scopes School JS/FE Pre-School 2022 (JAVASCRIPT)"`,
+      ru: `Успешно закончил курс "The Rolling Scopes School JS/FE Pre-School 2022 (JAVASCRIPT)"`,
     },
     url: `https://app.rs.school/certificate/5vywii9t`,
   },
   {
     text: {
       en: `Succesfully completed "The Rolling Scopes School 2022Q1 (JAVASCRIPT)" course`,
-      ru: `Успешно закончил курсы "The Rolling Scopes School 2022Q1 (JAVASCRIPT)"`,
+      ru: `Успешно закончил курс "The Rolling Scopes School 2022Q1 (JAVASCRIPT)"`,
     },
     url: `https://app.rs.school/certificate/yf92hgw5`,
   },
