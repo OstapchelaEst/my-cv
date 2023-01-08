@@ -6,9 +6,6 @@
       width: 100%;
       margin-left: 0px;
   }
-  &__container{
-
-  }
   &__title{
     font-size: calc(#{$indexScale}* 1.7);
     text-align: center;
@@ -22,10 +19,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-  }
-  &__item{
-
-  
   }
   &__link{
     transition: all 0.3s ease 0s;

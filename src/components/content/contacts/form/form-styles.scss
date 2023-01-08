@@ -52,9 +52,7 @@
       font-size: calc(#{$indexScale}* 2);
       position: static;
       order: 1;
-      height: 20px;
-      margin-top: -7px;
-      margin-bottom: 3px;
+      height:auto
     }
   }
 
@@ -66,12 +64,10 @@
 
   .error-value {
     border: 5px solid #e34e46;
-    //background-color: #f8bfbc;
   }
 
   .passed-value {
     border: 5px solid #50c878;
-    //background-color: #9bedb6;
   }
 
   &__button {
@@ -111,7 +107,7 @@
   justify-content: center;
   align-items: center;
   @media (max-width: 600px){
-      padding: 20px 0px;
+    padding: 20px 0px;
   }
 }
 

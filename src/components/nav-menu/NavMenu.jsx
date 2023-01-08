@@ -38,6 +38,10 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth,
     };
   }, []);
 
+  useEffect(() => {
+    const heightNawMenu = heightNavMenu.current.offsetHeight;
+    setHowManuPxTranslate(heightNawMenu);
+  }, [lang]);
   return (
     <nav
       style={{ transform: `translateY(-${howManuPxTranslate}px)` }}

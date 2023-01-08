@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Crimson+Pro:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
-@import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900");
+
 $indexScale: calc(1vh + 1vw);
 $gap:30px;
 $bigLine:36;
@@ -29,11 +29,10 @@ button {
 body{
   background-color: #000;
   color :#fff;
-  font-family:"Crimson Pro","Rubik",serif;
+  font-family:"Raleway";
   font-weight: 300;
   font-size: calc(#{$indexScale}* 1.5);
   line-height: 1.75;
-  //height: 5500px;
   opacity: 0; 
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -30,6 +30,17 @@ export const ProjectsInfo = [
     imgSrc: CV,
     url: '/',
   },
+
+  {
+    name: 'gallery',
+    description: {
+      en: 'Image search site based on unsplash API',
+      ru: `Поисковик изображений на базе unsplash API`,
+    },
+    tools: { en: 'Tools: JavaScript, SCSS', ru: 'Инструменты: JavaScript, SCSS' },
+    imgSrc: Galery,
+    url: 'https://rolling-scopes-school.github.io/ostapchelaest-JSFEPRESCHOOL/js30.2.2-image-galery/',
+  },
   {
     name: 'App-manager',
     description: {
@@ -44,23 +55,6 @@ export const ProjectsInfo = [
     url: 'https://orla90.github.io/Project-Management-App/',
   },
   {
-    name: 'gallery',
-    description: {
-      en: 'Image search site based on unsplash API',
-      ru: `Поисковик изображений на базе unsplash API`,
-    },
-    tools: { en: 'Tools: JavaScript, SCSS', ru: 'Инструменты: JavaScript, SCSS' },
-    imgSrc: Galery,
-    url: 'https://rolling-scopes-school.github.io/ostapchelaest-JSFEPRESCHOOL/js30.2.2-image-galery/',
-  },
-  {
-    name: 'Memory game',
-    description: { en: 'Memory card game', ru: `Карточная игра на запоминание` },
-    tools: { en: 'Tools: JavaScript, SCSS', ru: 'Инструменты: JavaScript, SCSS' },
-    imgSrc: MemoryGame,
-    url: 'https://rolling-scopes-school.github.io/ostapchelaest-JSFEPRESCHOOL/js30.3.2-memory-game/',
-  },
-  {
     name: 'rs-lang',
     description: {
       en: 'Site for learning English with games and statistics',
@@ -73,6 +67,14 @@ export const ProjectsInfo = [
     imgSrc: RsLang,
     url: 'https://rslang-git-gh-pages-ostapchelaest.vercel.app/',
   },
+  {
+    name: 'Memory game',
+    description: { en: 'Memory card game', ru: `Карточная игра на запоминание` },
+    tools: { en: 'Tools: JavaScript, SCSS', ru: 'Инструменты: JavaScript, SCSS' },
+    imgSrc: MemoryGame,
+    url: 'https://rolling-scopes-school.github.io/ostapchelaest-JSFEPRESCHOOL/js30.3.2-memory-game/',
+  },
+
   {
     name: "photographer's portfolio",
     description: { en: 'Photographer portfolio landing page', ru: `Лендинг портфолио фотографа` },
