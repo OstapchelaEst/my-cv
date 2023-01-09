@@ -116,7 +116,6 @@ function App() {
         } else if (lastScrollValue.current > 0) {
           lastScrollValue.current -= 200;
         }
-        console.log("i'm working");
         setCSSvalues(lastScrollValue.current);
         isVisit(lastScrollValue.current, arrScrollValues);
       }
