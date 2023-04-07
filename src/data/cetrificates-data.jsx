@@ -29,6 +29,6 @@ export const certificates = [
       en: `Succesfully completed "Layout course from Freelancer for Life" course`,
       ru: `Окончил курс вёрстки от "Фрилансера по жизни"`,
     },
-    url: `https://fls.guru/certificate-2021.html?3146_%D0%9E%D1%81%D1%82%D0%B0%D0%BF%D1%87%D1%83%D0%BA_#3146`,
+    url: `https://fls.guru/certificate-2021.html?3146_%D0%https://fls.guru/certificate-2021.html?3146_%D0%9E%D1%81%D1%82%D0%B0%D0%BF%D1%87%D1%83%D0%BA%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9_#31469E%D1%81%D1%82%D0%B0%D0%BF%D1%87%D1%83%D0%BA_#3146`,
   },
 ];

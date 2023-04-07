@@ -42,12 +42,13 @@ function App() {
       allItems.current.forEach((e, i) => {
         zVals.push(i * zSpasing + zSpasing);
         zVals[i] += delta * -5;
-        const frame = allItems.current[i],
-          transform = `translateZ(${zVals[i]}px)`,
-          opacity = zVals[i] < Math.abs(zSpasing) / 30 ? 1 : 0,
-          vis = zVals[i] < Math.abs(zSpasing) / 30 ? 'visible' : 'hidden',
-          pointerEvents =
-            zVals[i] < Math.abs(zSpasing) / 30 ? (zVals[i] <= -500 ? 'none' : 'all') : 'none';
+        const frame = allItems.current[i];
+        const transform = `translateZ(${zVals[i]}px)`;
+        const opacity = zVals[i] < Math.abs(zSpasing) / 30 ? 1 : 0;
+        const vis = zVals[i] < Math.abs(zSpasing) / 30 ? 'visible' : 'hidden';
+        const pointerEvents =
+          zVals[i] < Math.abs(zSpasing) / 30 ? (zVals[i] <= -500 ? 'none' : 'all') : 'none';
+
         frame.setAttribute(
           'style',
           `      
@@ -61,6 +62,7 @@ function App() {
     };
   }, []);
   const setCSSvalues = setClosesCSSvalues();
+
   const isVisit = useCallback((scrollValue, arrScrollValues) => {
     if (arrScrollValues.includes(scrollValue)) {
       setVisitParth(`parth-${scrollValue}`);
@@ -68,16 +70,20 @@ function App() {
       setVisitParth(`parth`);
     }
   }, []);
+
   const setLastScrollValue = useCallback((value) => {
     lastScrollValue.current = value;
   }, []);
+
   const setPermissionScroll = useCallback((value) => {
     permissionToScrollFUnction.current = value;
   }, []);
+
   const setStartTouchCords = useCallback((event) => {
     startTouchCordsY.current = event.changedTouches[0].clientY;
     startTouchCordsX.current = event.changedTouches[0].clientX;
   }, []);
+
   const scrollOnWheel = useCallback(
     (event) => {
       if (permissionToScrollFUnction.current) {

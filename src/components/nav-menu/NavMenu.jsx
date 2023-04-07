@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { useState } from 'react';
 import { MenuData } from '../../data/menu-data';
 import { arrowSVG } from './arrowSVG';
@@ -26,10 +26,11 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth,
     setVisitParth(`parth-${step}`);
     setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
   };
+
   const onResize = () => {
     if (!isOpen) setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     const heightNawMenu = heightNavMenu.current.offsetHeight;
     setHowManuPxTranslate(heightNawMenu);
     window.addEventListener('resize', onResize);
