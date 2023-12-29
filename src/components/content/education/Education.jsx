@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { i18ObjEducation } from '../../../data/education';
 import './education-style.scss';
-const Education = ({ lang }) => {
+import ScrollItem from '../../../components/scroll-items/ScrollItem';
+import { useTranslation } from 'react-i18next';
+
+export const Education = memo(() => {
+  const { t } = useTranslation();
+
   return (
-    <div className="education">
-      <div className="education__container">
-        <div className="education__title title">
-          <span>{i18ObjEducation[lang].title}</span>
-        </div>
-        <div className="education__text text">
-          <p>{i18ObjEducation[lang].firstParagraph}</p>
-          <p>{i18ObjEducation[lang].secondParagraph}</p>
+    <ScrollItem>
+      <div className="education">
+        <div className="education__container">
+          <div className="education__title title">
+            <span>{t(i18ObjEducation.title)}</span>
+          </div>
+          <div className="education__text text">
+            <p>{t(i18ObjEducation.firstParagraph)}</p>
+            <p>{t(i18ObjEducation.secondParagraph)}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </ScrollItem>
   );
-};
-
-export default Education;
+});

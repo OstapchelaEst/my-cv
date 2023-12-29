@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import FormInput from './formInput';
 import FormButton from './FormButton';
 import TextArea from './TextArea';
@@ -6,6 +6,10 @@ import emailjs from '@emailjs/browser';
 import './form-styles.scss';
 import { useForm } from 'react-hook-form';
 import { i18ObjContacts } from '../../../../data/contacts';
+import { BlockScrollProvider } from '../../../../providers/BlockScrollProvider';
+import { Loader } from '../../../Loader/Loader';
+import IsLoadingIMG from '../../../../assets/projectsPhotos/isLoadingGifTwo.gif';
+import ResponseStatus from '../../show-response-status/ResponseStatus';
 
 const validationName = (str) => {
   return str.length >= 2 ? true : JSON.stringify({ en: 'Too short', ru: 'Слишком короткое' });
@@ -20,14 +24,10 @@ const validationEmail = (str) => {
     : JSON.stringify({ en: 'Not valid email', ru: 'Некорректный адрест почты' });
 };
 
-const FormContact = ({
-  lang,
-  className,
-  setOpenIsLoading,
-  setPermissionScroll,
-  setResponsePayload,
-  setShowResponse,
-}) => {
+const FormContact = ({ lang, className }) => {
+  const { setScrollAllow } = useContext(BlockScrollProvider);
+  const [isLoading, setIsLoading] = useState(false);
+  const [responsePayload, setResponsePayload] = useState(null);
   const form = useRef();
   const {
     register,
@@ -37,14 +37,13 @@ const FormContact = ({
   } = useForm({ mode: 'onBlur' });
 
   const finishRequest = (message) => {
-    setShowResponse(true);
     setResponsePayload(message);
-    setOpenIsLoading(false);
+    setIsLoading(false);
   };
 
   function sendEmail() {
-    setOpenIsLoading(true);
-    setPermissionScroll(false);
+    setIsLoading(true);
+    setScrollAllow(false);
     emailjs
       .sendForm('default_service', 'template_hckb14r', form.current, 'Xm8_bmuuMzAR29I3L')
       .then(() => {
@@ -118,6 +117,10 @@ const FormContact = ({
           />
           <FormButton type={'submit'}>{i18ObjContacts[lang].buttonWrite}</FormButton>
         </form>
+        {isLoading && <Loader picture={IsLoadingIMG} />}
+        {responsePayload && (
+          <ResponseStatus setClose={setResponsePayload} payload={responsePayload} />
+        )}
       </div>
     </>
   );

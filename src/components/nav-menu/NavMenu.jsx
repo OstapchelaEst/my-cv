@@ -1,21 +1,26 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useState } from 'react';
 import { MenuData } from '../../data/menu-data';
 import { arrowSVG } from './arrowSVG';
 import MenuItem from './NavMenuItem';
+import { useScrollAnimations } from '../../hooks/useScrollAnimations';
+import { useScrollHandlers } from '../../hooks/useScrollHandlers';
 
-const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth, lang }) => {
+const NavMenu = ({ setLastScrollValue, customClass, setVisitParth, lang }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [howManuPxTranslate, setHowManuPxTranslate] = useState(0);
+  const [menuTranslateY, setMenuTranslateY] = useState(0);
+  const { visitParth } = useScrollHandlers(() => {}, 0);
   const heightNavMenu = useRef();
-  function Menu() {
+  const setCSSvalues = useScrollAnimations();
+  console.log(visitParth);
+  const onClickHandler = () => {
     if (isOpen) {
-      setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
+      setMenuTranslateY(heightNavMenu.current.offsetHeight);
     } else {
-      setHowManuPxTranslate(0);
+      setMenuTranslateY(0);
     }
     setIsOpen((prev) => !prev);
-  }
+  };
 
   const scrollToBlock = (event, step) => {
     event.preventDefault();
@@ -24,28 +29,25 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth,
     setLastScrollValue(step);
     setCSSvalues(step);
     setVisitParth(`parth-${step}`);
-    setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
+    setMenuTranslateY(heightNavMenu.current.offsetHeight);
   };
 
   const onResize = () => {
-    if (!isOpen) setHowManuPxTranslate(heightNavMenu.current.offsetHeight);
+    if (!isOpen) setMenuTranslateY(heightNavMenu.current.offsetHeight);
   };
+
   useLayoutEffect(() => {
     const heightNawMenu = heightNavMenu.current.offsetHeight;
-    setHowManuPxTranslate(heightNawMenu);
+    setMenuTranslateY(heightNawMenu);
     window.addEventListener('resize', onResize);
     return () => {
       window.removeEventListener('resize', onResize);
     };
-  }, []);
-
-  useEffect(() => {
-    const heightNawMenu = heightNavMenu.current.offsetHeight;
-    setHowManuPxTranslate(heightNawMenu);
   }, [lang]);
+
   return (
     <nav
-      style={{ transform: `translateY(-${howManuPxTranslate}px)` }}
+      style={{ transform: `translateY(-${menuTranslateY}px)` }}
       className={`menu ${isOpen ? 'open' : 'close'} ${customClass ? customClass : ''}`}
     >
       <ul className="menu__list" ref={heightNavMenu}>
@@ -63,7 +65,7 @@ const NavMenu = ({ setLastScrollValue, setCSSvalues, customClass, setVisitParth,
       </ul>
 
       <button
-        onClick={Menu}
+        onClick={onClickHandler}
         className="menu__btn"
         dangerouslySetInnerHTML={{
           __html: arrowSVG,

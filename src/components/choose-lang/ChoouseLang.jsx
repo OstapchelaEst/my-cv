@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './choouse-lang-styles.scss';
-const ChooseLang = ({ lang, setLang }) => {
+import i18n from '../../utils/i18n';
+import { useTranslation } from 'react-i18next';
+
+export const ChooseLang = memo(() => {
+  const {
+    i18n: { language },
+  } = useTranslation();
   return (
-    <div className={`lang ${lang === 'en' ? 'en' : 'ru'}`}>
+    <div className={`lang ${language === 'en' ? 'en' : 'ru'}`}>
       <button
         className="lang__en"
         onClick={() => {
-          setLang('en');
+          i18n.changeLanguage('en');
         }}
       >
         EN
@@ -15,13 +21,11 @@ const ChooseLang = ({ lang, setLang }) => {
       <button
         className="lang__ru"
         onClick={() => {
-          setLang('ru');
+          i18n.changeLanguage('ru');
         }}
       >
         RU
       </button>
     </div>
   );
-};
-
-export default ChooseLang;
+});

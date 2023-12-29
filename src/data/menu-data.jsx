@@ -6,4 +6,4 @@ export const MenuData = [
   { name: { en: 'Contacts', ru: 'Контакты' }, scrollValue: 1200 },
 ];
 
-export const arrScrollValues = [200, 600, 800, 1000, 1200];
+export const arrScrollValues = MenuData.map((item) => item.scrollValue);

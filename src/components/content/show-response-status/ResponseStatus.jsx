@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './response-statys-styles.scss';
-const ResponseStatus = ({ payload, setClose, setPermissionScroll }) => {
+import { BlockScrollProvider } from '../../../providers/BlockScrollProvider';
+
+const ResponseStatus = ({ payload, setClose }) => {
+  const { setScrollAllow } = useContext(BlockScrollProvider);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     setVisible(true);
   }, []);
+
   const close = () => {
     setVisible(false);
-    setPermissionScroll(true);
+    setScrollAllow(true);
     setTimeout(() => {
-      setClose(false);
+      setClose(null);
     }, 300);
   };
   return (

@@ -8,10 +8,12 @@ import WebPlayer from './../assets/projectsPhotos/webPlayer.png';
 import Shelter from './../assets/projectsPhotos/Shelter.png';
 import CV from './../assets/projectsPhotos/portfolio.png';
 import AppManager from './../assets/projectsPhotos/appManager.png';
+
 export const projectsTitle = {
   en: `My projects`,
   ru: `Мои проекты`,
 };
+
 export const ProjectsInfo = [
   {
     name: 'Shelter',

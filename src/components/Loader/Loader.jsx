@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './Is-loading-styles.scss';
-const IsLoading = ({ picture }) => {
+import './loader-styles.scss';
+
+export const Loader = ({ picture }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setVisible(true);
@@ -11,5 +12,3 @@ const IsLoading = ({ picture }) => {
     </div>
   );
 };
-
-export default IsLoading;
