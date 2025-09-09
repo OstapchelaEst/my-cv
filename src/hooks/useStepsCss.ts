@@ -66,7 +66,7 @@ export const useStepsCss = ({ maxSteps }: { maxSteps: number }) => {
       const touchEnd = e.changedTouches[0].clientY
       const deltaY = touchEnd - touchStart
 
-      if (Math.abs(deltaY) > 100) {
+      if (Math.abs(deltaY) > 10) {
         e.preventDefault()
       }
     }
