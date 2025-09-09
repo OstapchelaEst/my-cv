@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ss: calc(0.75vh + 0.75vw);
+  --range-value: 1500px;
+  --current-step: 1;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --ss: calc(0.95vh + 0.95vw);
+  }
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-black;
+}
+
+* {
+  @apply font-raleway text-primary;
+}
+
+.title {
+  @apply w-fit font-bold tracking-widest relative uppercase mb-2 text-[calc(var(--ss)*2)] mobile:mb-4;
+
+  &::after {
+    content: '';
+    @apply absolute bg-accent bottom-[-3px] w-[110%] left-0 h-[3px] rounded-lg mobile:left-1/2 mobile:-translate-x-1/2 mobile:-bottom-1.5;
+  }
+}
+
+.text {
+  @apply font-light text-[calc(var(--ss)*1.5)] leading-[110%] mobile:text-center;
+
+  &:not(:last-child) {
+    @apply mb-2;
+  }
+}

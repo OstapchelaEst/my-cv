@@ -1,12 +1,15 @@
 {
-  "SUMMARY": "О себе",
-  "Hello, glad to see you! My name is Dima, I'm 23 years old, an enthusiastic beginner Front-End developer with a desire to grow and study in a team.": "Привет, рад тебя видеть! Я Дима, мне 23 года, увлечённый начинающий front-end разработчик с желанием расти и учиться в команде.",
-  "Technologies that I use: HTML, CSS, SCSS, JavaScript, TypeScript, React.JS, Redux/Redux-toolkit, Axios, Node.JS, MongoDB, Git.": "Технологии которые я использую:  HTML, CSS, SCSS, JavaScript, TypeScript, React.JS, Redux/Redux-toolkit, Axios, Node.JS, MongoDB",
-  "Education": "Образование",
-  "A graduated from the Brest State Polytechnic College with a degree in “Design and Production of Radio Equipment”.": "Окончил Бресткий Государственный политехнический колледж по специальности «Проектирование и производство радиоэлектронной аппаратуры».",
-  "At the moment I am a 2nd year student of the correspondence department of Brest State Technical University with a degree in industrial electronics (radio engineer)": "На данный момент являюсь студентом 2 курса заочного отделения Брестского Государственного технического университета по специальности «Промышленная электроника» (Инженер-радиотехник)",
-  "Succesfully completed 'The Rolling Scopes School 2022Q3 (REACT)' course": "Успешно закончил курс 'The Rolling Scopes School 2022Q3 (REACT)'",
-  "Succesfully completed 'The Rolling Scopes School JS/FE Pre-School 2022 (JAVASCRIPT)' course": "Успешно закончил курс 'The Rolling Scopes School JS/FE Pre-School 2022 (JAVASCRIPT)'",
-  "Succesfully completed 'The Rolling Scopes School 2022Q1 (JAVASCRIPT)' course": "Успешно закончил курс 'The Rolling Scopes School 2022Q1 (JAVASCRIPT)'",
-  "sertificates": "сертификаты"
+  "titles": {
+    "summary": "О себе",
+    "skills": "Навыки",
+    "contacts": "Контакты"
+  },
+  "summary": {
+    "p1": "Привет, рад что ты заглянул ко мне :) Я — фронтенд-разработчик с более чем 3-летним опытом работы с React и TypeScript. Создаю удобные, быстрые и современные интерфейсы, уделяя внимание деталям и качеству кода.",
+    "p2": "Увлечён своей профессией, быстро адаптируюсь к новым задачам и технологиям. Легко нахожу общий язык с командой и заказчиками, ценю открытость и результат."
+  },
+  "contacts": {
+    "title": "Будем на связи!",
+    "description": "Если у вас есть вопросы, предложения или интересные проекты — смело пишите. Я всегда открыт к новым возможностям и сотрудничеству."
+  }
 }

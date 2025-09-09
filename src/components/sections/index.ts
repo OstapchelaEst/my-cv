@@ -1,0 +1,5 @@
+export * from './hero'
+export * from './summary'
+export * from './summary-img'
+export * from './skills'
+export * from './contacts'
