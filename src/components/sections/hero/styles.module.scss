@@ -1,0 +1,24 @@
+.hero {
+  @apply relative z-[1000] flex flex-col items-center uppercase relative z-[2];
+
+  & * {
+    @apply select-none;
+  }
+
+  & h1 {
+    @apply leading-[120%] font-bold relative text-primary text-[calc(var(--ss)*3.5)];
+    word-spacing: 15px;
+  }
+
+  & .underline {
+    @apply h-[3px] rounded-full bg-accent;
+  }
+
+  & h2 {
+    @apply mt-1 font-light text-[calc(var(--ss)*1.2)] text-primary;
+  }
+
+  &_decoration {
+    @apply pointer-events-none w-[calc(var(--ss)*7.5)] h-[calc(var(--ss)*7.5)] absolute z-[-1];
+  }
+}

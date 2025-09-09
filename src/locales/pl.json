@@ -1,0 +1,15 @@
+{
+  "titles": {
+    "summary": "O siebie",
+    "skills": "Skills",
+    "contacts": "Kontakty"
+  },
+  "summary": {
+    "p1": "Cześć, cieszę się, że tu zajrzałeś :) Jestem frontend deweloperem z ponad 3-letnim doświadczeniem w pracy z React i TypeScript. Tworzę wygodne, szybkie i nowoczesne interfejsy, zwracając uwagę na szczegóły i jakość kodu.",
+    "p2": "Jestem pasjonatem swojej pracy, szybko dostosowuję się do nowych zadań i technologii. Łatwo nawiązuję kontakt z zespołem i klientami, cenię sobie otwartość i rezultaty."
+  },
+  "contacts": {
+    "title": "Pozostańmy w kontakcie!",
+    "description": "Masz pytania, propozycje lub ciekawy projekt? Napisz śmiało! Zawsze jestem otwarty na nowe możliwości i współpracę."
+  }
+}

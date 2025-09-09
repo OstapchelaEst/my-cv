@@ -1,0 +1,15 @@
+{
+  "titles": {
+    "summary": "summary",
+    "skills": "Skills",
+    "contacts": "Contacts"
+  },
+  "summary": {
+    "p1": "Hi, glad you stopped by :) I’m a frontend developer with over 3 years of experience working with React and TypeScript. I create user-friendly, fast, and modern interfaces, paying attention to detail and code quality.",
+    "p2": "I’m passionate about my profession, adapt quickly to new tasks and technologies, and easily connect with both team members and clients. I value openness and results."
+  },
+  "contacts": {
+    "title": "Let’s stay in touch!",
+    "description": "If you have any questions, ideas, or exciting projects — feel free to reach out. I’m always open to new opportunities and collaborations."
+  }
+}

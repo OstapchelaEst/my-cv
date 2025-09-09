@@ -1,0 +1,27 @@
+.scroll_page {
+  @apply mobile:p-3 will-change-transform p-10 absolute transition-all duration-700 bg-black inset-0 w-screen min-h-svh flex items-center justify-center;
+  pointer-events: none;
+  z-index: calc(100000 - var(--page-step));
+
+  --delta: calc(var(--current-step) - var(--page-step));
+  transform: translateZ(calc(var(--delta) * var(--range-value)));
+
+  --is-active: max(sign(var(--current-step) - var(--page-step)), 0);
+  opacity: calc(1 - var(--is-active));
+
+  [data-active='var(--page-step)'] & {
+    background-color: red !important;
+  }
+
+  &.has_position {
+    @apply bg-transparent grid grid-cols-2;
+
+    @media (max-width: 600px) {
+      @apply grid-cols-1 grid-rows-[1fr_1fr];
+    }
+  }
+
+  &:global(.active) {
+    pointer-events: all;
+  }
+}
