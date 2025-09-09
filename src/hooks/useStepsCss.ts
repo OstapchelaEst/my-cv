@@ -49,25 +49,35 @@ export const useStepsCss = ({ maxSteps }: { maxSteps: number }) => {
     }, SCROLL_THROTTLE)
 
     const handleTouchStart = (e: TouchEvent) => {
+      e.preventDefault()
       touchStart = e.changedTouches[0].clientY
     }
 
     const handleTouchEnd = (e: TouchEvent) => {
+      e.preventDefault()
       const touchEnd = e.changedTouches[0].clientY
-      const direction: StepDirection = touchEnd - touchStart < 0 ? 'down' : 'up'
+      const deltaY = touchEnd - touchStart
+
+      if (Math.abs(deltaY) < 100) return
+
+      const direction: StepDirection = deltaY < 0 ? 'down' : 'up'
       handleDirection(direction)
     }
+
+    const handleTouchMove = (e: TouchEvent) => e.preventDefault()
 
     setDefaultStep()
     updateActiveStep()
 
-    window.addEventListener('wheel', handleWheel)
-    window.addEventListener('touchstart', handleTouchStart)
-    window.addEventListener('touchend', handleTouchEnd)
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    window.addEventListener('touchstart', handleTouchStart, { passive: false })
+    window.addEventListener('touchstart', handleTouchMove, { passive: false })
+    window.addEventListener('touchend', handleTouchEnd, { passive: false })
 
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchstart', handleTouchMove)
       window.removeEventListener('touchend', handleTouchEnd)
     }
   }, [maxSteps])
