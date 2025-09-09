@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-cv
-=======
 # 💼 About Me
 
 This is a small, simple **CV** that highlights who I am and what I can do.  
@@ -62,4 +59,3 @@ I adapt quickly to new challenges and technologies, enjoy working in a team, and
 - Git / GitHub / GitLab
 - Agile / Scrum
 - Frontend performance optimization
->>>>>>> develop
